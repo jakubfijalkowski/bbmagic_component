@@ -1,0 +1,21 @@
+{
+    "domain": "bbmagic",
+    "name": "BBMagic (unencrypted)",
+    "config_flow": true,
+    "dependencies": [],
+    "after_dependencies": [],
+    "codeowners": [
+        "@jakubfijalkowski"
+    ],
+    "iot_class": "local_push",
+    "requirements": [
+        "bluetooth-sensor-state-data>=1.6.2"
+    ],
+    "version": "0.1",
+    "bluetooth": [
+        {
+            "connectable": false,
+            "manufacturer_id": 65535
+        }
+    ]
+}

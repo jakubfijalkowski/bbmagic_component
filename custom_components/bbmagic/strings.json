@@ -1,0 +1,32 @@
+{
+    "config": {
+        "flow_title": "BBMagic Flood",
+        "step": {
+            "user": {
+                "title": "BBMagic Flood",
+                "description": "Setup of BBMagic Flood device",
+                "data": {
+                    "address": "MAC Address of the device"
+                }
+            },
+            "bluetooth": {
+                "title": "BBMagic Flood",
+                "description": "Setup of BBMagic Flood device",
+                "data": {
+                    "address": "MAC Address of the device"
+                }
+            },
+            "bluetooth_confirm": {
+                "title": "BBMagic Flood",
+                "description": "Setup of BBMagic Flood device",
+                "data": {
+                    "address": "MAC Address of the device"
+                }
+            }
+        },
+        "error": {
+            "invalid_mac": "MAC address must be in the form 'AA:BB:CC:DD:EE:FF'."
+        },
+        "abort": {}
+    }
+}
