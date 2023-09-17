@@ -23,7 +23,7 @@ from .const import DOMAIN, MOISTURE_KEY
 
 MOISTURE_SENSOR = BinarySensorEntityDescription(
     key=MOISTURE_KEY,
-    name="Flood Moisture",
+    name="Moisture",
     device_class=BinarySensorDeviceClass.MOISTURE,
 )
 

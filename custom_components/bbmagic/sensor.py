@@ -16,6 +16,8 @@ from homeassistant.components.sensor import (
     SensorStateClass,
 )
 from homeassistant.const import (
+    PERCENTAGE,
+    EntityCategory,
     UnitOfTemperature,
     UnitOfTime,
     UnitOfElectricPotential,
@@ -25,34 +27,49 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.sensor import sensor_device_info_to_hass_device_info
 from bluetooth_sensor_state_data import SensorUpdate
 
-from .const import DOMAIN, UPTIME_KEY, VOLTAGE_KEY, TEMPERATURE_KEY
+from .const import DOMAIN, UPTIME_KEY, VOLTAGE_KEY, TEMPERATURE_KEY, BATTERY_KEY
 
 UPTIME_SENSOR = SensorEntityDescription(
     key=UPTIME_KEY,
-    name="Flood Uptime",
+    name="Uptime",
     device_class=SensorDeviceClass.DURATION,
     native_unit_of_measurement=UnitOfTime.SECONDS,
     state_class=SensorStateClass.TOTAL_INCREASING,
+    entity_category=EntityCategory.DIAGNOSTIC,
 )
 
 TEMPERATURE_SENSOR = SensorEntityDescription(
     key=TEMPERATURE_KEY,
-    name="Flood Temperature",
+    name="Temperature",
     device_class=SensorDeviceClass.TEMPERATURE,
     native_unit_of_measurement=UnitOfTemperature.CELSIUS,
     state_class=SensorStateClass.MEASUREMENT,
+    entity_category=EntityCategory.DIAGNOSTIC,
 )
 
 VOLTAGE_SENSOR = SensorEntityDescription(
     key=VOLTAGE_KEY,
-    name="Flood Battery Voltage",
+    name="Battery Voltage",
     device_class=SensorDeviceClass.VOLTAGE,
     native_unit_of_measurement=UnitOfElectricPotential.VOLT,
     state_class=SensorStateClass.MEASUREMENT,
+    entity_category=EntityCategory.DIAGNOSTIC,
+)
+
+BATTERY_SENSOR = SensorEntityDescription(
+    key=BATTERY_KEY,
+    name="Battery %",
+    device_class=SensorDeviceClass.BATTERY,
+    native_unit_of_measurement=PERCENTAGE,
+    state_class=SensorStateClass.MEASUREMENT,
+    entity_category=EntityCategory.DIAGNOSTIC,
 )
 
 ALL_SENSORS = dict(
-    map(lambda x: (x.key, x), [UPTIME_SENSOR, TEMPERATURE_SENSOR, VOLTAGE_SENSOR])
+    map(
+        lambda x: (x.key, x),
+        [UPTIME_SENSOR, TEMPERATURE_SENSOR, VOLTAGE_SENSOR, BATTERY_SENSOR],
+    )
 )
 
 
